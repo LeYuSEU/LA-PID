@@ -36,7 +36,7 @@
   "train_seed": 0,
   "val_seed": 0,
   "sets_are_pre_split": true,
-  "evaluate_on_test_set_only": true,
+  "evaluate_on_test_set_only": false,
   "num_evaluation_tasks": 600,
   "multi_step_loss_num_epochs": 15,
   "enable_inner_loop_optimizable_bn_params": false,

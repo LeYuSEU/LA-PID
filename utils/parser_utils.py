@@ -51,7 +51,7 @@ def get_args():
     parser.add_argument('--task_learning_rate', type=float, default=0.1, help='Learning rate per task gradient step')
     parser.add_argument('--cnn_num_blocks', type=int, default=4, help='cnn layers per block')
     parser.add_argument('--name_of_args_json_file', type=str,
-                        default="FC100+ResNet12+5w5s15q+PID+maml.json")
+                        default="FC100+4conv+5w5s15q+PID+maml.json")
 
     args = parser.parse_args()
     args_dict = vars(args)
@@ -77,8 +77,8 @@ def get_args():
                 os.environ['DATASET_DIR'] = '/home/lhq/code/CIFAR-FS/'
             # ============================ FC100
             elif 'FC100' in args.dataset_name:
-                os.environ['DATASET_DIR'] = '/home/lhq/code/FC100/'
-                # os.environ['DATASET_DIR'] = 'D:/Dataset/01_FewShot/FC100'
+                # os.environ['DATASET_DIR'] = '/home/lhq/code/FC100/'
+                os.environ['DATASET_DIR'] = 'D:/Dataset/01_FewShot/FC100'
             # ============================= omniglot
             elif 'omniglot' in args.dataset_name:
                 os.environ['DATASET_DIR'] = 'D:/dataset/omniglot_dataset'
@@ -125,7 +125,7 @@ def extract_args_from_json(json_file_path, args_dict):
         #     pass
         # else:
         # args_dict[key] = summary_dict[key]
-    # args_dict['experiment_name'] = f"{args_dict['dataset_name']}+{args_dict['backbone']}+20w{args_dict['num_samples_per_class']}s15q+PID+maml+bs{args_dict['batch_size']}+minLR{args_dict['min_learning_rate']}+metaLR{args_dict['meta_learning_rate']}+epoches{args_dict['total_epochs']}+meanStd"
-    args_dict['experiment_name'] = "FC100+5w5s+ResNet12+55.66+PID+maml+bs4+minLR1e-05+metaLR0.001+epoches50+meanStd"
+    args_dict['experiment_name'] = f"{args_dict['dataset_name']}+{args_dict['backbone']}+5w{args_dict['num_samples_per_class']}s15q+PID+maml+bs{args_dict['batch_size']}+minLR{args_dict['min_learning_rate']}+metaLR{args_dict['meta_learning_rate']}+epoches{args_dict['total_epochs']}+meanStd"
+    # args_dict['experiment_name'] = "FC100+5w5s+ResNet12+55.66+PID+maml+bs4+minLR1e-05+metaLR0.001+epoches50+meanStd"
     
     return args_dict
